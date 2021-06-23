@@ -1,0 +1,23 @@
+name: Docker CiCd
+
+on:
+  push:
+    branches: [ master ]
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: docker build frontend
+        run: |
+          docker build ./frontend
+          
+      - name: docker build backend
+        run: docker build ./backend
+          
+
+     
