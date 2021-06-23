@@ -20,7 +20,12 @@ jobs:
 
             - name: docker build frontend
               run: |
-                  docker build ./frontend
+                  docker build -t brandodev/frontend ./frontend
 
             - name: docker build backend
-              run: docker build ./backend
+              run: docker build -t brandodev/backend ./backend
+
+            - name: docker push
+              run: |
+                  docker push brandodev/frontend
+                  docker push brandodev/backend
