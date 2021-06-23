@@ -1,0 +1,32 @@
+version: "3.8"
+
+services:
+    api:
+        image: brandodev/backend
+        # build:
+        #     context: ../backend
+        #     dockerfile: Dockerfile
+        # volumes:
+        #     - ../backend:/myapp
+        ports:
+            - 8080:8080
+        networks:
+            - myapp
+
+    app:
+        image: brandodev/frontend
+        # build:
+        #     context: ../frontend
+        #     dockerfile: Dockerfile
+        # volumes:
+        #     - ../frontend:/app
+        ports:
+            - 80:80
+        networks:
+            - myapp
+        depends_on:
+            - api
+
+networks:
+    myapp:
+        driver: bridge
