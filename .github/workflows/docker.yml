@@ -31,14 +31,14 @@ jobs:
                   docker push brandodev/backend
 
             - name: pull from github
-              run:
-                  with:
-                      host: ${{ secrets.SSH_HOST }}
-                      username: ${{ secrets.USER }}
-                      key: ${{ secrets.SSH_KEY }}
-                      script: |
-                          cd ~/app/demo && git pull
-                          cd ~app/demo/devops
-                          docker-compose down
-                          docker rmi $(docker images ps -q)
-                          docker-compose up -d --build
+              uses: appleboy/ssh-action@master
+              with:
+                  host: ${{ secrets.SSH_HOST }}
+                  username: ${{ secrets.USER }}
+                  key: ${{ secrets.SSH_KEY }}
+                  script: |
+                      cd ~/app/demo && git pull
+                      cd ~app/demo/devops
+                      docker-compose down
+                      docker rmi $(docker images ps -q)
+                      docker-compose up -d --build
