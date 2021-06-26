@@ -37,8 +37,8 @@ jobs:
               run: |
                   cd ~/app/demo/devops
                   docker-compose down
-                  docker rm $(docker ps -q)
-                  docker rmi $(docker images -q)
+                  docker rm -f $(docker ps -q)
+                  docker rmi -f $(docker images -q)
 
             - name: docker compose up
               run: docker-compose up -d --build
