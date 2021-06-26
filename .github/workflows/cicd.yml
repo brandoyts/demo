@@ -42,6 +42,3 @@ jobs:
 
             - name: docker compose up
               run: docker-compose up -d --build
-
-    success:
-        run: echo CI/CD success
