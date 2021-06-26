@@ -40,4 +40,6 @@ jobs:
                   docker rmi -f $(docker images -q)
 
             - name: docker compose up
-              run: docker-compose up -d --build
+              run: |
+                  cd ~/app/demo/devops
+                  docker-compose up -d --build
