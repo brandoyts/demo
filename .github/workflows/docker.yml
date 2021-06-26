@@ -38,7 +38,7 @@ jobs:
                   key: ${{ secrets.SSH_KEY }}
                   script: |
                       cd ~/app/demo && git pull
-                      cd ~app/demo/devops
+                      cd ~/app/demo/devops
                       docker-compose down
                       docker rmi $(docker images ps -q)
                       docker-compose up -d --build
