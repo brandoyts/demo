@@ -33,12 +33,16 @@ jobs:
                   cd ~/app/demo
                   git pull origin master
 
-            - name: stop remove running containers
+            - name: remove running containers
               run: |
-                  run: cd ~/app/demo/devops
+                  cd ~/app/demo/devops
                   docker-compose down
                   docker rm $(docker ps -q)
                   docker rmi $(docker images -q)
 
             - name: docker compose up
               run: docker-compose up -d --build
+
+    success:
+        steps:
+            run: echo CI/CD success
