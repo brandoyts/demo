@@ -44,5 +44,4 @@ jobs:
               run: docker-compose up -d --build
 
     success:
-        steps:
-            run: echo CI/CD success
+        run: echo CI/CD success
