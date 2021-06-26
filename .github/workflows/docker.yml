@@ -31,12 +31,12 @@ jobs:
                   docker push brandodev/backend
 
             - name: pull from github
-              uses: appleboy/ssh-action@master
+              uses: fifsky/ssh-action@master
               with:
                   host: ${{ secrets.SSH_HOST }}
-                  username: ${{ secrets.USERNAME }}
+                  user: ${{ secrets.USERNAME }}
                   key: ${{ secrets.SSH_KEY }}
-                  script: |
+                  command: |
                       cd ~/app/demo && git pull
                       cd ~/app/demo/devops
                       docker-compose down
