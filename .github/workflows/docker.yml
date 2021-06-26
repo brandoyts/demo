@@ -1,4 +1,4 @@
-name: Docker CiCd
+name: DIgitalocean CI/CD
 
 on:
     push:
