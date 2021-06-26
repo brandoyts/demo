@@ -7,7 +7,7 @@ function App() {
 
     useEffect(() => {
         const fetchTodos = async () => {
-            const res = await axios.get("http://localhost/api");
+            const res = await axios.get("http://188.166.190.124/api");
             setTodos(res.data.todos);
         };
 
