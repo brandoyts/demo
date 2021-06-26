@@ -31,6 +31,7 @@ jobs:
                   docker push brandodev/backend
 
             - name: pull from github
+            - run:
               with:
                   host: ${{ secrets.SSH_HOST }}
                   username: ${{ secrets.USER }}
