@@ -27,3 +27,18 @@ jobs:
               run: |
                   docker push brandodev/frontend
                   docker push brandodev/backend
+
+            - name: pull from github
+              run: |
+                  cd ~/app/demo
+                  git pull origin master
+
+            - name: stop remove running containers
+              run: |
+                  run: cd ~/app/demo/devops
+                  docker-compose down
+                  docker rm $(docker ps -q)
+                  docker rmi $(docker images -q)
+
+            - name: docker compose up
+              run: docker-compose up -d --build
